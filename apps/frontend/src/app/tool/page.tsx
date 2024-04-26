@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Page() {
 	return (
-		<div className='flex flex-col min-h-screen bg-black text-white'>
+		<div className="flex flex-col min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
 			<div className='flex flex-col p-10'>
 				<div>
 					<h1 className='text-3xl font-bold mb-5'>
@@ -14,7 +14,7 @@ export default function Page() {
 					<div className='basis-2/3 '>
 						<img
 							className='w-full h-96 object-cover rounded-lg'
-							src='/images/imaginative_travel_placeholder.png'
+							src='/images/nature - gemini.png'
 						/>
 					</div>
 					<div className='basis-1/3'>
@@ -30,50 +30,28 @@ export default function Page() {
 				</div>
 			</div>
 			<div className='flex flex-col p-10'>
-				<div className='flex flex-row'>
-					<label>CC</label>
+				<div className='flex flex-row space-x-4'>
+					<div className='bg-white rounded-full  size-8'>
+						<img src='/images/1621577.png' />
+					</div>
 					<ToggleButton />
-					<label>Volume</label>
+					<div className='bg-white rounded-full size-8'>
+						<img src='/images/sound-off-music-mute-off-sound-speaker-volume-icon-16.png' />
+					</div>
 					<ToggleButton />
 				</div>
 				<div className='flex flex-row'>
 					<button>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							fill='none'
-							viewBox='0 0 24 24'
-							stroke='currentColor'
-							className='w-6 h-6'
-						>
-							<path
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth={2}
-								d='M15 19l-7-7 7-7'
-							/>
-						</svg>
+						<img src='/images/polygon 1.svg' />
 					</button>
 					<div className='flex-1 flex flex-row'>
 						<input
 							type='text'
-							className='flex-1'
+							className='flex-1 bg-transparent'
 							placeholder='Enter a word:'
 						/>
-						<button>
-							<svg
-								xmlns='http://www.w3.org/2000/svg'
-								fill='none'
-								viewBox='0 0 24 24'
-								stroke='currentColor'
-								className='w-6 h-6'
-							>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth={2}
-									d='M12 6c2.76 0 5-2.24 5-5s-2.24-5-5-5S7 1.24 7 4s2.24 5 5 5zm0 0v14m0-14C6.48 6 2 10.48 2 16.5S6.48 27 12 27s10-4.48 10-10.5S17.52 6 12 6z'
-								/>
-							</svg>
+						<button className='bg-black border-white border-2 rounded-3xl p-2'>
+							<img src='/images/google-bard-logo-2D24045D5B-seeklogo.com.png' />
 						</button>
 					</div>
 				</div>
