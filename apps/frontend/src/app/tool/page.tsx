@@ -6,17 +6,11 @@ import React from "react";
 import * as THREE from "three";
 import ToolView from "@/components/three/tool-view";
 
-
 export default function Page() {
-	const [cc, setCC] = React.useState(false);
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
 
 	const [word, setWord] = React.useState("");
-
-	const handleCC = () => {
-		setCC(!cc);
-	};
 
 	const handleMusic = () => {
 		setMusic(!music);
@@ -53,31 +47,24 @@ export default function Page() {
 					</h1>
 				</div>
 				<div className='flex flex-col md:max-w-screen md:flex-row md:space-x-4 space-y-4 flex-1'>
-					<div style={cc ? { flexBasis: "66%" } : { flex: "1 1 0%" }}>
+					<div className='basis-2/3'>
 						<ToolView image={image} />
 					</div>
-					{cc && (
-						<div style={{ flexBasis: "33%" }}>
-							<h2 className='text-2xl font-bold'>Captions</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit. Sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat.
-							</p>
-						</div>
-					)}
+					<div className='basis-1/3'>
+						<h2 className='text-2xl font-bold'>Captions</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis
+							nostrud exercitation ullamco laboris nisi ut aliquip
+							ex ea commodo consequat.
+						</p>
+					</div>
 				</div>
 			</div>
 
 			<div className='flex flex-col p-3 md:p-10 md:pt-0'>
 				<div className='flex flex-row space-x-4'>
-					<div className='bg-white rounded-full size-8'>
-						<img src='/images/1621577.png' />
-					</div>
-					<ToggleButton onClick={handleCC} />
 					<div className='bg-white rounded-full size-8'>
 						<img src='/images/sound-off-music-mute-off-sound-speaker-volume-icon-16.png' />
 					</div>
