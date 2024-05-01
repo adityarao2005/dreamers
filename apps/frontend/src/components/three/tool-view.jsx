@@ -9,7 +9,7 @@ import {
 	Environment,
 } from "@react-three/drei";
 import { easing } from "maath";
-import OrbitControls from "@/components/three/orbityou controls";
+import OrbitControls from "@/components/three/orbitcontrols";
 
 const GOLDENRATIO = 1.61803398875;
 
