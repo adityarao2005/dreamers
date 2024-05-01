@@ -46,14 +46,14 @@ export default function Page() {
 
 	return (
 		<div className="flex flex-col min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
-			<div className='flex flex-col p-10'>
+			<div className='flex flex-col p-10 flex-1'>
 				<div>
 					<h1 className='text-3xl font-bold mb-5'>
 						Imaginative Travel
 					</h1>
 				</div>
-				<div className='flex flex-col md:flex-row md:space-x-4 space-y-4'>
-					<div className='flex flex-1 w-full h-96'>
+				<div className='flex flex-col md:flex-row md:space-x-4 space-y-4 flex-1'>
+					<div className='flex flex-1 w-full'>
 						<ToolView image={image} />
 					</div>
 					{/*
@@ -79,7 +79,7 @@ export default function Page() {
 				</div>
 			</div>
 
-			<div className='flex flex-col p-3 md:p-10'>
+			<div className='flex flex-col p-3 md:p-10 md:pt-0'>
 				<div className='flex flex-row space-x-4'>
 					<div className='bg-white rounded-full size-8'>
 						<img src='/images/1621577.png' />
