@@ -23,114 +23,41 @@ export default function App({ image }) {
 			<group position={[0, 0, 0]}>
 				<ImageFrameFront image={image} />
 				<mesh rotation={[0, 0, 0]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
+					
 				</mesh>
 			</group>
 
 			<group position={[7.5, 0, -9.6]}>
 				<ImageFrameRight image={image} />
 				<mesh rotation={[0, -Math.PI / 2, 0]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
 				</mesh>
 			</group>
 
 			<group position={[-7.5, 0, -9.6]}>
 				<ImageFrameLeft image={image} />
 				<mesh rotation={[0, Math.PI / 2, 0]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
+			
 				</mesh>
 			</group>
 
 			<group position={[0, 0, -15.05]}>
 				<ImageFrameBack image={image} />
 				<mesh rotation={[0, 0, Math.PI / 2]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
+					
 				</mesh>
 			</group>
 
 			<group position={[0, 7.5, -9.6]}>
 				<ImageFrameTop image={image} />
 				<mesh rotation={[Math.PI / 2, 0, Math.PI / 2]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
+					
 				</mesh>
 			</group>
 
 			<group position={[0, -7.5, -9.6]}>
 				<ImageFrameBottom image={image} />
 				<mesh rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
-					<planeGeometry args={[10, 10]} />
-					<MeshReflectorMaterial
-						blur={[300, 100]}
-						resolution={2048}
-						mixBlur={1}
-						mixStrength={80}
-						roughness={1}
-						depthScale={1.2}
-						minDepthThreshold={0.4}
-						maxDepthThreshold={1.4}
-						color='#050505'
-						metalness={0.5}
-					/>
+					
 				</mesh>
 			</group>
 			
