@@ -11,27 +11,54 @@ export default function Home() {
 
   return (
 
-    <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-[url('/images/bgtest9.png')] justify-center">
+    <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-[url('/images/startbackground.png')] justify-center">
 	
       <div className="flex flex-col h-full items-center">
 
-        <p className="text-white text-center text-lg mb-40">
+        <p className = "text-center text-lg text-3x1 font-bold mb-20">
+
 
         </p>
 
-        <p className="text-white text-center text-lg text-3xl font-bold">
+        <p className = "text-center text-lg text-3x1 font-bold mb-5">
+
+
+        </p>
+
+        <p className="text-white text-center text-xl font-bold mt-40">
           An immersive GenAI experience
         </p>
 
-        <p className="text-white text-center text-lg mb-8">
+        <p className = "text-center text-lg text-3x1 font-bold mb-5">
+
+
+        </p>
+
+        <p className="text-white text-center text-xl mb-5">
           Powered by Gemini
         </p>
 
+        <p className = "text-center text-lg text-3x1 font-bold mb-5">
+
+
+        </p>
+
         <button className="border border-white rounded-lg py-2 px-4 
-        rounded-full bg-opacity-10 hover:bg-gray-200 hover:bg-gray-200/50 text-white font-bold text-center text-lg"
+        rounded-full bg-opacity-10 hover:bg-gray-200 hover:bg-gray-200/50 text-white font-bold text-center text-xl"
         onClick={toolPage}>
-            Click to Start
-          </button>
+            START
+        </button>
+
+   
+        <p className = "text-center text-lg text-3x1 font-bold mb-5">
+          
+        </p>
+          
+        
+        <p className="text-white text-center text-sm mt-10">
+          By Aditya Rao, Oliver Lai Wai, and Kamakshi Sarva
+        </p>
+
 
       </div>
 
