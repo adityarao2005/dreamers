@@ -44,26 +44,19 @@ export default function Page() {
 	const image = { url: "/images/nature - gemini.png" };
 
 	return (
-		<div className="flex flex-col min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
+		<div className="flex flex-col max-w-screen min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
 			<div className='flex flex-col p-10 flex-1'>
 				<div>
 					<h1 className='text-3xl font-bold mb-5'>
 						Imaginative Travel
 					</h1>
 				</div>
-				<div className='flex flex-col md:flex-row md:space-x-4 space-y-4 flex-1'>
-					<div className='flex flex-1 w-full'>
+				<div className='flex flex-col md:max-w-screen md:flex-row md:space-x-4 space-y-4 flex-1'>
+					<div style={cc ? { flexBasis: "66%" } : { flex: "1 1 0%" }}>
 						<ToolView image={image} />
 					</div>
-					{/*
-					<div className={cc ? "basis-2/3" : "flex-1"}>
-						<img
-							className='w-full h-96 object-cover rounded-lg'
-							src='/images/nature - gemini.png'
-						/>
-					</div>
 					{cc && (
-						<div className='basis-1/3'>
+						<div style={{ flexBasis: "33%" }}>
 							<h2 className='text-2xl font-bold'>Captions</h2>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur
@@ -74,7 +67,7 @@ export default function Page() {
 								consequat.
 							</p>
 						</div>
-					)}*/}
+					)}
 				</div>
 			</div>
 
