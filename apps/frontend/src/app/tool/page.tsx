@@ -1,12 +1,10 @@
 "use client";
 
-import Floor from "@/components/three/floor";
 import ToggleButton from "@/components/toggle_button";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
-import Box from "@/components/three/box";
-import LightBulb from "@/components/three/light";
-import OrbitControls from "@/components/three/orbitcontrols";
+import * as THREE from "three";
+import ToolView from "@/components/three/tool-view";
 
 export default function Page() {
 	const [cc, setCC] = React.useState(false);
@@ -43,6 +41,8 @@ export default function Page() {
 		}
 	};
 
+	const image = { url: "/images/nature - gemini.png" };
+
 	return (
 		<div className="flex flex-col min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
 			<div className='flex flex-col p-10'>
@@ -52,24 +52,10 @@ export default function Page() {
 					</h1>
 				</div>
 				<div className='flex flex-col md:flex-row md:space-x-4 space-y-4'>
-					<div>
-						<Canvas
-							shadows={true}
-							camera={{
-								position: [-6, 7, 7],
-							}}
-						>
-							<ambientLight color={"white"} intensity={0.2} />
-							<LightBulb position={[0, 3, 0]} />
-							<LightBulb position={[3, 1, 0]} />
-							<LightBulb position={[0, 1, 3]} />
-							<LightBulb position={[-3, 1, 0]} />
-							<LightBulb position={[0, 1, -3]} />
-							<Box rotateX={3} rotateY={0.2} />
-							<OrbitControls />
-							<Floor position={[0, -1, 0]} />
-						</Canvas>
+					<div className='flex flex-1 w-full h-96'>
+						<ToolView image={image} />
 					</div>
+					{/*
 					<div className={cc ? "basis-2/3" : "flex-1"}>
 						<img
 							className='w-full h-96 object-cover rounded-lg'
@@ -88,7 +74,7 @@ export default function Page() {
 								consequat.
 							</p>
 						</div>
-					)}
+					)}*/}
 				</div>
 			</div>
 
@@ -108,7 +94,7 @@ export default function Page() {
 					<ToggleButton onClick={handleVolume} />
 				</div>
 				<div className='flex flex-row my-4 space-x-1'>
-					<button className='md:flex-1' onClick={returnHome}>
+					<button onClick={returnHome}>
 						<img src='/images/polygon 1.svg' />
 					</button>
 					<div className='flex-1 flex flex-row bg-[rgba(0,0,0,0.5)] rounded-3xl md:mx-4'>
