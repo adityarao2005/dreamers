@@ -9,6 +9,7 @@ import {
 	Environment,
 } from "@react-three/drei";
 import { easing } from "maath";
+import OrbitControls from "@/components/three/orbityou controls";
 
 const GOLDENRATIO = 1.61803398875;
 
@@ -55,7 +56,9 @@ export default function App({ image }) {
 					/>
 				</mesh>
 			</group>
+			
 			<Environment preset='city' />
+			<OrbitControls />
 		</Canvas>
 	);
 }
