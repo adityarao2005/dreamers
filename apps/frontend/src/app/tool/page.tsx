@@ -39,7 +39,7 @@ export default function Page() {
 	const image = { url: "/images/nature - gemini.png" };
 
 	return (
-		<div className="flex flex-col max-w-screen min-h-screen bg-[url('/images/background.jpg')] bg-no-repeat bg-cover text-white">
+		<div className="flex flex-col max-w-screen min-h-screen bg-[url('/images/background-tool.png')] bg-no-repeat bg-cover text-white">
 			<div className='flex flex-col p-10 flex-1'>
 				<div>
 					<h1 className='text-3xl font-bold mb-5'>
@@ -66,17 +66,20 @@ export default function Page() {
 			<div className='flex flex-col p-3 md:p-10 md:pt-0'>
 				<div className='flex flex-row space-x-4'>
 					<div className='bg-white rounded-full size-8'>
-						<img src='/images/sound-off-music-mute-off-sound-speaker-volume-icon-16.png' />
+						<img src='/images/speak-icon.png' />
 					</div>
 					<ToggleButton onClick={handleMusic} />
 					<div className='bg-white rounded-full size-8'>
-						<img src='/images/sound-off-music-mute-off-sound-speaker-volume-icon-16.png' />
+						<img src='/images/volume-icon.png' />
 					</div>
 					<ToggleButton onClick={handleVolume} />
 				</div>
 				<div className='flex flex-row my-4 space-x-1'>
 					<button onClick={returnHome}>
-						<img src='/images/polygon 1.svg' />
+						<img
+							src='/images/polygon 1.svg'
+							className='hover:brightness-50'
+						/>
 					</button>
 					<div className='flex-1 flex flex-row bg-[rgba(0,0,0,0.5)] rounded-3xl md:mx-4'>
 						<input
