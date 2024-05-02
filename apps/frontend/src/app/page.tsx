@@ -10,22 +10,19 @@ export default function Home() {
 	};
 
   return (
+  
+    <div className="relative min-h-screen">
+      <Image
+        src="/images/startbackground.png"
+        alt="Background Image"
+        layout="fill"
+        objectFit="cover"
+        className="fixed inset-0 z-0"
+      />
+	    
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
 
-    <div className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-[url('/images/startbackground.png')] justify-center">
-	
-      <div className="flex flex-col h-full items-center">
-
-        <p className = "text-center text-lg text-3x1 font-bold mb-20">
-
-
-        </p>
-
-        <p className = "text-center text-lg text-3x1 font-bold mb-5">
-
-
-        </p>
-
-        <p className="text-white text-center text-xl font-bold mt-40">
+        <p className="text-white text-center text-3xl font-bold mt-40 drop-shadow-2lg">
           An immersive GenAI experience
         </p>
 
@@ -34,7 +31,7 @@ export default function Home() {
 
         </p>
 
-        <p className="text-white text-center text-xl mb-5">
+        <p className="text-white text-center text-xl mb-5 drop-shadow-2lg">
           Powered by Gemini
         </p>
 
@@ -55,7 +52,7 @@ export default function Home() {
         </p>
           
         
-        <p className="text-white text-center text-sm mt-10">
+        <p className="text-white text-center text-sm mt-10 drop-shadow-sm">
           By Aditya Rao, Oliver Lai Wai, and Kamakshi Sarva
         </p>
 
