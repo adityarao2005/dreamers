@@ -31,21 +31,7 @@ export default function Page() {
 				return;
 			}
 			alert("You entered: " + word);
-			fetch("/api/prompt", {
-				method: "POST",
-				body: JSON.stringify({ word: word }),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					alert("Prompt: " + data.prompt);
-				})
-				.catch((error) => {
-					console.error("Error:", error);
-				
-			})
+			
 		} else {
 			alert("Please enter a word.");
 		}
