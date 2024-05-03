@@ -2,16 +2,33 @@
 
 import ToggleButton from "@/components/toggle_button";
 import { Canvas } from "@react-three/fiber";
-import React from "react";
+import React, { use, useEffect } from "react";
 import * as THREE from "three";
 import ToolView from "@/components/three/tool-view";
 
+const url = "http://localhost:8000";
+
+function playAudio(images: string[]) {
+
+}
+
 export default function Page() {
+	
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
-
+	const [images, setImages] = React.useState([
+		"/images/nature - gemini.png",
+		"/images/nature - gemini.png",
+		"/images/nature - gemini.png",
+		"/images/nature - gemini.png",
+		"/images/nature - gemini.png",
+		"/images/nature - gemini.png",
+	]);
+	const [caption, setCaptions] = React.useState(
+		`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.!`
+	);
 	const [word, setWord] = React.useState("");
-
+	
 	const handleMusic = () => {
 		setMusic(!music);
 	};
@@ -24,20 +41,44 @@ export default function Page() {
 		window.location.href = "/";
 	};
 
-	const handlePrompt = () => {
+	const handlePrompt = async () => {
 		if (word) {
 			if (word.indexOf(" ") != -1) {
 				alert("Please enter only one word.");
 				return;
 			}
-			alert("You entered: " + word);
-			
+			// Call the API to generate the image
+			const imageResponse = await fetch(`${url}/api/create_image`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ prompt: word }),
+			});
+			const data = await imageResponse.json();
+			const image_paths = data["image_urls"];
+
+			// Set the image
+			const captionResponse = await fetch(`${url}/api/generate_caption`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ word: word }),
+			});
+			const captionData = await captionResponse.json();
+			const caption = captionData["caption"];
+
+			setImages(image_paths);
+			setCaptions(caption);
+
+			useEffect(() => {
+
+			}, []);
 		} else {
 			alert("Please enter a word.");
 		}
 	};
-
-	const image = { url: "/images/nature - gemini.png" };
 
 	return (
 		<div className="flex flex-col max-w-screen min-h-screen bg-[url('/images/background-tool.png')] bg-no-repeat bg-cover text-white">
@@ -49,16 +90,12 @@ export default function Page() {
 				</div>
 				<div className='flex flex-col md:max-w-screen md:flex-row md:space-x-4 space-y-4 flex-1'>
 					<div className='basis-2/3'>
-						<ToolView image={image} />
+						<ToolView images={images} />
 					</div>
 					<div className='basis-1/3'>
 						<h2 className='text-2xl font-bold'>Captions</h2>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis
-							nostrud exercitation ullamco laboris nisi ut aliquip
-							ex ea commodo consequat.
+							{caption}
 						</p>
 					</div>
 				</div>

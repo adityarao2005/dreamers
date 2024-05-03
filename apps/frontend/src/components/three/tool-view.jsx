@@ -13,7 +13,7 @@ import OrbitControls from "@/components/three/orbitcontrols";
 
 const GOLDENRATIO = 1.61803398875;
 
-export default function App({ image }) {
+export default function App({ images }) {
 	const clicked = useRef();
 
 	return (
@@ -21,41 +21,41 @@ export default function App({ image }) {
 			<color attach='background' args={["#191920"]} />
 
 			<group position={[0, 0, 0]}>
-				<ImageFrameFront image={image} />
+				<ImageFrameFront image={images[0]} />
 				<mesh rotation={[0, 0, 0]}>
 					
 				</mesh>
 			</group>
 
 			<group position={[7.5, 0, -9.6]}>
-				<ImageFrameRight image={image} />
+				<ImageFrameRight image={images[1]} />
 				<mesh rotation={[0, -Math.PI / 2, 0]}>
 				</mesh>
 			</group>
 
 			<group position={[-7.5, 0, -9.6]}>
-				<ImageFrameLeft image={image} />
+				<ImageFrameLeft image={images[2]} />
 				<mesh rotation={[0, Math.PI / 2, 0]}>
 			
 				</mesh>
 			</group>
 
 			<group position={[0, 0, -15.05]}>
-				<ImageFrameBack image={image} />
+				<ImageFrameBack image={images[3]} />
 				<mesh rotation={[0, 0, Math.PI / 2]}>
 					
 				</mesh>
 			</group>
 
 			<group position={[0, 7.5, -9.6]}>
-				<ImageFrameTop image={image} />
+				<ImageFrameTop image={images[4]} />
 				<mesh rotation={[Math.PI / 2, 0, Math.PI / 2]}>
 					
 				</mesh>
 			</group>
 
 			<group position={[0, -7.5, -9.6]}>
-				<ImageFrameBottom image={image} />
+				<ImageFrameBottom image={images[5]} />
 				<mesh rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
 					
 				</mesh>
@@ -90,7 +90,7 @@ function ImageFrameFront({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 				/>
 			</mesh>
@@ -123,7 +123,7 @@ function ImageFrameRight({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 					rotation={[0, Math.PI / 2, 0]} // Add this line
 				/>
@@ -156,7 +156,7 @@ function ImageFrameLeft({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 					rotation={[0, -Math.PI / 2, 0]} // Add this line
 				/>
@@ -189,7 +189,7 @@ function ImageFrameBack({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 					rotation={[0, Math.PI, 0]} // Add this line
 
@@ -224,7 +224,7 @@ function ImageFrameTop({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 					rotation={[-Math.PI/2, 0, 0]} // Add this line
 
@@ -259,7 +259,7 @@ function ImageFrameBottom({ image }) {
 				<Image
 					raycast={() => null}
 					position={[0, 0, 0.7]}
-					url={image.url}
+					url={image}
 					scale={[5, 5, 1]}
 					rotation={[Math.PI/2, 0, 0]} // Add this line
 

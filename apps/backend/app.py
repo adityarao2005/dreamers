@@ -10,19 +10,18 @@ CORS(app)
 @app.route('/api/generate_caption', methods=['POST'])
 def generate_caption_route():
 	data = request.get_json()
-	caption = generate_caption(data['image_path'])
+	caption = generate_caption(data['word'])
 	return jsonify({'caption': caption})
 
 @app.route('/api/create_image', methods=['POST'])
 def create_image_route():
 	data = request.get_json()
 	filename = create_image(data['prompt'])
-	return jsonify({'image_path': '/api/image/' + filename})
+	return jsonify({ 'image_urls' : filename.map(lambda x: '/api/image/' + x) })
 
 @app.route('/api/image/<imagename>', methods=['GET'])
-def get_image():
-	data = request.view_args['imagename']
-	return app.send_static_file('test-images/' + data)
+def get_image(imagename):
+	return app.send_static_file(imagename)
 
 if __name__ == "__main__":
 	print("Starting Flask Server")
