@@ -16,8 +16,11 @@ def generate_caption_route():
 @app.route('/api/create_image', methods=['POST'])
 def create_image_route():
 	data = request.get_json()
-	filename = create_image(data['prompt'])
-	return jsonify({ 'image_urls' : list(map((lambda x: '/api/image/' + x), filename)) })
+	filenames = create_image(data['prompt'])
+	print(filenames)
+	new_images = list(map((lambda x: '/api/image/' + x), filenames))
+	print(new_images)
+	return jsonify({ 'image_urls' : new_images })
 
 @app.route('/api/image/<imagename>', methods=['GET'])
 def get_image(imagename):

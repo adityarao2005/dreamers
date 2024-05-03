@@ -99,7 +99,7 @@ export default function Page() {
 				body: JSON.stringify({ prompt: word }),
 			});
 			const data = await imageResponse.json();
-			const image_paths = data["image_urls"];
+			const image_paths = data["image_urls"].map((path: string) => url + path);
 			image_paths.push("/images/cube-platform.png");
 
 			// Set the image
