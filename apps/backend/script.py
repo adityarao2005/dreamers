@@ -21,7 +21,7 @@ openai.api_key = constants.OPEN_AI_API_KEY
 def create_image(user_prompt):
 	response = openai.Image.create(
 		prompt=user_prompt, 
-		n=6, #number of images 
+		n=5, #number of images 
 		size="1024x1024" #size of the image 
 	)
 

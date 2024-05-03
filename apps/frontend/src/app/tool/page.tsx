@@ -10,8 +10,7 @@ const url = "http://localhost:8000";
 
 function speakCaption(
 	caption: string,
-	synth: SpeechSynthesis,
-	setVolume: (value: boolean) => void
+	synth: SpeechSynthesis
 ) {
 	const pitch = 1;
 	const rate = 1;
@@ -25,16 +24,16 @@ function speakCaption(
 	}
 	utterThis.pitch = pitch;
 	utterThis.rate = rate;
-	utterThis.onend = () => {
-		setVolume(false);
-	};
 
 	synth.cancel();
 	synth.speak(utterThis);
 }
 
 export default function Page() {
+	// DOM Attributes
 	const [synth, setSynth] = React.useState<SpeechSynthesis>();
+	const [audio, setAudio] = React.useState<HTMLAudioElement>();
+	// Data attributes
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
 	const [images, setImages] = React.useState([
@@ -50,15 +49,25 @@ export default function Page() {
 	);
 	const [word, setWord] = React.useState("");
 
+	// Side Effects
 	useEffect(() => {
 		if (window !== undefined) {
 			const synth0 = window.speechSynthesis;
 			setSynth(synth0);
+
+			const audio0 = new Audio("/music.wav");
+			setAudio(audio0);
 		}
 	}, []);
 
 	const handleMusic = () => {
 		setMusic(!music);
+
+		if (music) {
+			audio!.pause();
+		} else {
+			audio!.play();
+		}
 	};
 
 	const handleVolume = () => {
@@ -67,7 +76,7 @@ export default function Page() {
 		if (volume) {
 			synth!.cancel();
 		} else {
-			speakCaption(caption, synth!, setVolume);
+			speakCaption(caption, synth!);
 		}
 	};
 
@@ -91,6 +100,7 @@ export default function Page() {
 			});
 			const data = await imageResponse.json();
 			const image_paths = data["image_urls"];
+			image_paths.push("/images/cube-platform.png");
 
 			// Set the image
 			const captionResponse = await fetch(`${url}/api/generate_caption`, {
@@ -107,7 +117,7 @@ export default function Page() {
 			setCaptions(caption);
 
 			if (volume) {
-				speakCaption(caption, synth!, setVolume);
+				speakCaption(caption, synth!);
 			}
 		} else {
 			alert("Please enter a word.");
@@ -138,11 +148,11 @@ export default function Page() {
 					<div className='rounded-full size-8'>
 						<img src='/images/speak-icon.png' />
 					</div>
-					<ToggleButton onClick={handleMusic} />
+					<ToggleButton onClick={handleVolume} />
 					<div className='rounded-full size-8'>
 						<img src='/images/volume-icon.png' />
 					</div>
-					<ToggleButton onClick={handleVolume} />
+					<ToggleButton onClick={handleMusic} />
 				</div>
 				<div className='flex flex-row my-4 space-x-1'>
 					<button onClick={returnHome}>
