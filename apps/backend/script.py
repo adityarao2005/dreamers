@@ -33,7 +33,7 @@ def create_image(user_prompt):
 		image = Image.open(BytesIO(response.content))
 		# Define the path where you want to save the image
 		filename = str(uuid.uuid4()) + '.jpg'
-		image_path = os.path.join('apps/backend/static', filename)
+		image_path = os.path.join('static', filename)
 		image_urls.append(filename)
 		# Save the image to a JPG file
 		image.save(image_path, "JPEG")

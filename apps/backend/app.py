@@ -17,7 +17,7 @@ def generate_caption_route():
 def create_image_route():
 	data = request.get_json()
 	filename = create_image(data['prompt'])
-	return jsonify({ 'image_urls' : filename.map(lambda x: '/api/image/' + x) })
+	return jsonify({ 'image_urls' : list(map((lambda x: '/api/image/' + x), filename)) })
 
 @app.route('/api/image/<imagename>', methods=['GET'])
 def get_image(imagename):

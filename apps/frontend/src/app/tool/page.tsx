@@ -8,22 +8,20 @@ import ToolView from "@/components/three/tool-view";
 
 const url = "http://localhost:8000";
 
-function speakCaption(
-	caption: string,
-	synth: SpeechSynthesis
-) {
-	const pitch = 1;
-	const rate = 1;
+function speakCaption(caption: string, synth: SpeechSynthesis) {
+	const pitch = 0.9;
+	const rate = 0.9;
 
 	const utterThis = new SpeechSynthesisUtterance(caption);
 	const voices = synth.getVoices();
 	for (const voice of voices) {
-		if (voice.name === "Google UK English Male") {
+		if (voice.name === "Google US English") {
 			utterThis.voice = voice;
 		}
 	}
 	utterThis.pitch = pitch;
 	utterThis.rate = rate;
+	utterThis.volume = 0.8;
 
 	synth.cancel();
 	synth.speak(utterThis);
@@ -56,6 +54,8 @@ export default function Page() {
 			setSynth(synth0);
 
 			const audio0 = new Audio("/music.wav");
+			audio0.volume = 0.5;
+			audio0.loop = true;
 			setAudio(audio0);
 		}
 	}, []);
