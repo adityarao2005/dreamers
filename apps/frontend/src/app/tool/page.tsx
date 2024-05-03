@@ -38,12 +38,12 @@ export default function Page() {
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
 	const [images, setImages] = React.useState([
-		"/images/nature - gemini.png",
-		"/images/nature - gemini.png",
-		"/images/nature - gemini.png",
-		"/images/nature - gemini.png",
-		"/images/nature - gemini.png",
-		"/images/nature - gemini.png",
+		"/images/cube-face10.png",
+		"/images/cube-face10.png",
+		"/images/cube-face10.png",
+		"/images/cube-face10.png",
+		"/images/cube-face10.png",
+		"/images/cube-platform4.png",
 	]);
 	const [caption, setCaptions] = React.useState(
 		`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.!`
