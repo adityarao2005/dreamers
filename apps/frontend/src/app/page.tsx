@@ -16,13 +16,13 @@ export default function Home() {
 				
 				</p>
 
-				<p className='text-white text-center md:text-2xl font-bold mt-60 md:mt-40 drop-shadow-2lg'>
+				<p className='text-white text-center md:text-2xl font-bold mt-60 md:mt-40 drop-shadow-8xl'>
 					An immersive GenAI experience
 				</p>
 
 				<p className='text-center text-lg text-3x1 font-bold mb-5'></p>
 
-				<p className='text-white text-center text-sm md:text-xl mb-5 drop-shadow-2lg'>
+				<p className='text-white text-center text-sm md:text-xl mb-5 drop-shadow-8xl'>
 					Powered by Gemini
 				</p>
 
