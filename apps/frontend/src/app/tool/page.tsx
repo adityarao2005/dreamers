@@ -8,12 +8,33 @@ import ToolView from "@/components/three/tool-view";
 
 const url = "http://localhost:8000";
 
-function playAudio(images: string[]) {
+function speakCaption(
+	caption: string,
+	synth: SpeechSynthesis,
+	setVolume: (value: boolean) => void
+) {
+	const pitch = 1;
+	const rate = 1;
 
+	const utterThis = new SpeechSynthesisUtterance(caption);
+	const voices = synth.getVoices();
+	for (const voice of voices) {
+		if (voice.name === "Google UK English Male") {
+			utterThis.voice = voice;
+		}
+	}
+	utterThis.pitch = pitch;
+	utterThis.rate = rate;
+	utterThis.onend = () => {
+		setVolume(false);
+	};
+
+	synth.cancel();
+	synth.speak(utterThis);
 }
 
 export default function Page() {
-	
+	const [synth, setSynth] = React.useState<SpeechSynthesis>();
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
 	const [images, setImages] = React.useState([
@@ -28,13 +49,26 @@ export default function Page() {
 		`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.!`
 	);
 	const [word, setWord] = React.useState("");
-	
+
+	useEffect(() => {
+		if (window !== undefined) {
+			const synth0 = window.speechSynthesis;
+			setSynth(synth0);
+		}
+	}, []);
+
 	const handleMusic = () => {
 		setMusic(!music);
 	};
 
 	const handleVolume = () => {
 		setVolume(!volume);
+
+		if (volume) {
+			synth!.cancel();
+		} else {
+			speakCaption(caption, synth!, setVolume);
+		}
 	};
 
 	const returnHome = () => {
@@ -72,9 +106,9 @@ export default function Page() {
 			setImages(image_paths);
 			setCaptions(caption);
 
-			useEffect(() => {
-
-			}, []);
+			if (volume) {
+				speakCaption(caption, synth!, setVolume);
+			}
 		} else {
 			alert("Please enter a word.");
 		}
@@ -94,9 +128,7 @@ export default function Page() {
 					</div>
 					<div className='basis-1/3'>
 						<h2 className='text-2xl font-bold'>Captions</h2>
-						<p>
-							{caption}
-						</p>
+						<p>{caption}</p>
 					</div>
 				</div>
 			</div>
