@@ -1,7 +1,5 @@
 import google.generativeai as genai
-import PIL.Image
 from google.cloud import aiplatform
-import vertexai.preview
 import openai
 import os
 import uuid
@@ -12,7 +10,6 @@ import requests  # For making HTTP requests to download the image
 from PIL import Image  # For handling image operations
 from io import BytesIO  # For handling byte streams
 
-#GOOGLE_API_KEY=userdata.get('AIzaSyB0hEjMquhMEzna55Myi26GTlKeoF04uow')
 genai.configure(api_key=constants.GOOGLE_API_KEY)
 
 #open ai key CHANGE TO BE SECURE LATER !!! 
