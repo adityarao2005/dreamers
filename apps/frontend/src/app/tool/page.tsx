@@ -38,12 +38,12 @@ export default function Page() {
 	const [music, setMusic] = React.useState(false);
 	const [volume, setVolume] = React.useState(false);
 	const [images, setImages] = React.useState([
-		"/images/cube-face10.png",
-		"/images/cube-face10.png",
-		"/images/cube-face10.png",
-		"/images/cube-face10.png",
-		"/images/cube-face10.png",
-		"/images/cube-platform4.png",
+		"/images/cube-face.png",
+		"/images/cube-face.png",
+		"/images/cube-face.png",
+		"/images/cube-face.png",
+		"/images/cube-face.png",
+		"/images/cube-platform.png",
 	]);
 	const [caption, setCaptions] = React.useState(
 		`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.!`
@@ -135,11 +135,11 @@ export default function Page() {
 
 			<div className='flex flex-col p-3 md:p-10 md:pt-0'>
 				<div className='flex flex-row space-x-4'>
-					<div className='bg-white rounded-full size-8'>
+					<div className='rounded-full size-8'>
 						<img src='/images/speak-icon.png' />
 					</div>
 					<ToggleButton onClick={handleMusic} />
-					<div className='bg-white rounded-full size-8'>
+					<div className='rounded-full size-8'>
 						<img src='/images/volume-icon.png' />
 					</div>
 					<ToggleButton onClick={handleVolume} />
